@@ -34,6 +34,14 @@ class TodoTableViewController: UITableViewController {
         return cell
     }
     
+    //MARK - TableView delegate methods
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 
 //
 //    func saveItems(){
