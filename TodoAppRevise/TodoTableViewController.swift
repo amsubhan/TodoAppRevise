@@ -20,6 +20,7 @@ class TodoTableViewController: UITableViewController {
         super.viewDidLoad()
         //tableView.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
+    
         loadItems()
     }
     
@@ -85,8 +86,7 @@ class TodoTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func loadItems(){
-        let request : NSFetchRequest<Todo_item> = Todo_item.fetchRequest()
+    func loadItems(with request : NSFetchRequest<Todo_item> = Todo_item.fetchRequest()){
         
         do{
             itemArray = try context.fetch(request)
@@ -94,8 +94,23 @@ class TodoTableViewController: UITableViewController {
         }catch{
             print("Can not read Data: \(error)")
         }
-        
+        tableView.reloadData()
     }
+    
 
+
+}
+
+extension TodoTableViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request : NSFetchRequest<Todo_item> =  Todo_item.fetchRequest()
+        let predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchBar.text!)
+        request.predicate = predicate
+        
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        loadItems(with: request)
+
+    }
 }
 
