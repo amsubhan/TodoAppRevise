@@ -102,6 +102,7 @@ class TodoTableViewController: UITableViewController {
 }
 
 extension TodoTableViewController: UISearchBarDelegate{
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let request : NSFetchRequest<Todo_item> =  Todo_item.fetchRequest()
         let predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchBar.text!)
@@ -110,7 +111,16 @@ extension TodoTableViewController: UISearchBarDelegate{
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         loadItems(with: request)
-
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0{
+           loadItems()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+            
+        }
     }
 }
 
