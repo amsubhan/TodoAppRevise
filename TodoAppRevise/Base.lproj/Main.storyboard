@@ -32,7 +32,14 @@
                             <outlet property="delegate" destination="Esb-Vz-IMO" id="Kt0-3o-2Lt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Second Todo App" id="iDZ-1X-59q"/>
+                    <navigationItem key="navigationItem" title="My Second Todo App" id="iDZ-1X-59q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pef-wL-ct8">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addNewTodo:" destination="Esb-Vz-IMO" id="6lG-NX-2l3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZm-Fk-l88" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
