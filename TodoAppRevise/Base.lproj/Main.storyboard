@@ -9,6 +9,45 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Todo's-->
+        <scene sceneID="uGf-Pd-E2a">
+            <objects>
+                <tableViewController id="OUu-Tp-Jk3" customClass="ParrentTodoVC" customModule="TodoAppRevise" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bXf-kT-1xc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="parrentTodoCell" id="bfw-nE-KyM">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bfw-nE-KyM" id="nMN-JQ-tlL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OUu-Tp-Jk3" id="XH1-m0-6US"/>
+                            <outlet property="delegate" destination="OUu-Tp-Jk3" id="aD6-kA-lg9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Todo's" id="eHW-v3-OJu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="f7E-a1-08P">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addParrentTodo:" destination="OUu-Tp-Jk3" id="oKx-k7-O9w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Esb-Vz-IMO" kind="show" identifier="goToSubTodo" id="S0t-r4-mg7"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QHC-d5-AMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="908" y="99"/>
+        </scene>
         <!--My Second Todo App-->
         <scene sceneID="zFx-US-IZU">
             <objects>
@@ -51,7 +90,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZm-Fk-l88" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063.2" y="99.400299850074973"/>
+            <point key="canvasLocation" x="1666" y="99"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X3O-JM-e8S">
@@ -68,12 +107,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Esb-Vz-IMO" kind="relationship" relationship="rootViewController" id="Tju-MD-O8x"/>
+                        <segue destination="OUu-Tp-Jk3" kind="relationship" relationship="rootViewController" id="hl1-2v-kC3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLB-Gc-gEa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="279" y="99"/>
+            <point key="canvasLocation" x="166" y="99"/>
         </scene>
     </scenes>
 </document>

@@ -2,13 +2,15 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Parrent_todo" representedClassName=".Parrent_todo" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="todoItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Todo_item" inverseName="parrentTodo" inverseEntity="Todo_item" syncable="YES"/>
     </entity>
     <entity name="Todo_item" representedClassName="Todo_item" syncable="YES" codeGenerationType="class">
         <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="parrentTodo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Parrent_todo" inverseName="todoItems" inverseEntity="Parrent_todo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Parrent_todo" positionX="-110" positionY="-13" width="128" height="58"/>
-        <element name="Todo_item" positionX="124" positionY="-18" width="128" height="73"/>
+        <element name="Parrent_todo" positionX="-72" positionY="-27" width="128" height="73"/>
+        <element name="Todo_item" positionX="124" positionY="-16" width="128" height="88"/>
     </elements>
 </model>
